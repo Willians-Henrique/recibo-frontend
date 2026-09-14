@@ -1,0 +1,46 @@
+<div class="pagina">
+  <div class="cabecalho">
+    <h2>Pessoas</h2>
+    <button mat-raised-button color="primary" (click)="novaPessoa()">Nova pessoa</button>
+  </div>
+
+  <table mat-table [dataSource]="pessoas" class="tabela">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cpf">
+      <th mat-header-cell *matHeaderCellDef>CPF</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.cpf }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefone">
+      <th mat-header-cell *matHeaderCellDef>Telefone</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.telefone }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="estadoCivil">
+      <th mat-header-cell *matHeaderCellDef>Estado civil</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.estadoCivil }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let pessoa">
+        <button mat-icon-button (click)="editarPessoa(pessoa)" aria-label="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+  </table>
+</div>
+

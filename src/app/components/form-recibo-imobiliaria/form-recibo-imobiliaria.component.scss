@@ -1,0 +1,60 @@
+.form-recibo-imobiliaria {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+  height: 100%;
+  overflow: auto;
+  padding: 4px 12px;
+  box-sizing: border-box;
+}
+
+.coluna {
+  min-width: 0; // sem isso o conteúdo mais largo de uma coluna quebra o 50/50
+}
+
+// espaço entre o grupo de valores e o grupo seguinte (repasse / dados do contrato)
+.dados {
+  margin-top: 8px;
+}
+
+// preenche o espaço vazio entre as duas colunas e o rodapé, relacionando o pagamento ao contrato
+.identificacao {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  padding-top: 3px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.rodape-final {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  padding-top: 3px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+
+h3 {
+  margin: 2px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+// texto padronizado, sem input: só leitura, sem possibilidade de edição
+.linha-dado {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 1px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+  font-size: 0.85rem;
+
+  .label {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .valor {
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,38 @@
+// A4: 210mm x 297mm — tamanho fixo, só o recibo precisa ocupar exatamente 1 folha
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 210mm;
+  height: 297mm;
+  margin: 10mm auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #000; // só pra visualizar o limite da folha na tela
+  background: #fff;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  :host {
+    margin: 0;
+    border: none; // não queremos a borda de visualização no PDF/impressão
+  }
+}
+
+// recibo do cliente ocupa o topo, recibo da imobiliária o restante da folha
+app-recibo-cliente {
+  display: block;
+  flex: 0 0 45%;
+  overflow: hidden;
+}
+
+app-recibo-imobiliaria {
+  display: block;
+  flex: 0 0 55%;
+  overflow: hidden;
+}
+

@@ -1,0 +1,40 @@
+<div class="pagina">
+  <div class="cabecalho">
+    <h2>Imóveis</h2>
+    <button mat-raised-button color="primary" (click)="novoImovel()">Novo imóvel</button>
+  </div>
+
+  <table mat-table [dataSource]="imoveis" class="tabela">
+    <ng-container matColumnDef="tipo">
+      <th mat-header-cell *matHeaderCellDef>Tipo</th>
+      <td mat-cell *matCellDef="let imovel">{{ imovel.tipo }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="proprietarioNome">
+      <th mat-header-cell *matHeaderCellDef>Proprietário</th>
+      <td mat-cell *matCellDef="let imovel">{{ imovel.proprietarioNome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="enderecoFormatado">
+      <th mat-header-cell *matHeaderCellDef>Endereço</th>
+      <td mat-cell *matCellDef="let imovel">{{ imovel.enderecoFormatado }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="numeroRegistro">
+      <th mat-header-cell *matHeaderCellDef>N° registro</th>
+      <td mat-cell *matCellDef="let imovel">{{ imovel.numeroRegistro || '-' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let imovel">
+        <button mat-icon-button (click)="editarImovel(imovel)" aria-label="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+  </table>
+</div>

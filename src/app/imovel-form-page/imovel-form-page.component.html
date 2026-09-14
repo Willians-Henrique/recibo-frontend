@@ -1,0 +1,111 @@
+<mat-card class="pagina">
+  <mat-card-header>
+    <mat-card-title>{{ imovelId ? 'Editar imóvel' : 'Novo imóvel' }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form" class="form-grid">
+      <h3>Dados do imóvel</h3>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Proprietário</mat-label>
+        <mat-select formControlName="proprietarioId">
+          @for (pessoa of pessoas; track pessoa.id) {
+            <mat-option [value]="pessoa.id">{{ pessoa.nome }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo">
+          @for (tipo of tipos; track tipo) {
+            <mat-option [value]="tipo">{{ tipo }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Condomínio</mat-label>
+        <input matInput formControlName="condominio">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Código água</mat-label>
+        <input matInput formControlName="codigoAgua">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Código energia</mat-label>
+        <input matInput formControlName="codigoEnergia">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Código IPTU</mat-label>
+        <input matInput formControlName="codigoIptu">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Número de registro</mat-label>
+        <input matInput formControlName="numeroRegistro">
+      </mat-form-field>
+
+      <h3>Endereço</h3>
+
+      @if (!imovelId) {
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Usar endereço já cadastrado (opcional)</mat-label>
+          <mat-select formControlName="enderecoExistenteId">
+            <mat-option value="">Criar novo endereço</mat-option>
+            @for (endereco of enderecos; track endereco.id) {
+              <mat-option [value]="endereco.id">{{ endereco.rua }}, {{ endereco.numero }} - {{ endereco.bairro }}, {{ endereco.cidade }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rua</mat-label>
+        <input matInput formControlName="rua">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Número</mat-label>
+        <input matInput formControlName="numero">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Complemento</mat-label>
+        <input matInput formControlName="complemento">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Bairro</mat-label>
+        <input matInput formControlName="bairro">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cidade</mat-label>
+        <input matInput formControlName="cidade">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          @for (uf of ufs; track uf) {
+            <mat-option [value]="uf">{{ uf }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>País</mat-label>
+        <input matInput formControlName="pais">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [disabled]="salvando" (click)="salvar()">Salvar</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,109 @@
+<mat-card class="form-recibo-cliente">
+  <mat-card-content>
+    <form [formGroup]="form" class="form-grid">
+      <section class="coluna-esquerda">
+        <div formGroupName="imovel">
+          <mat-form-field appearance="outline" class="endereco">
+            <mat-label>Endereço do imóvel</mat-label>
+            <input matInput formControlName="endereco">
+          </mat-form-field>
+        </div>
+        <div formGroupName="proprietario" class="linha">
+          <mat-form-field appearance="outline">
+            <mat-label>Proprietário</mat-label>
+            <input matInput formControlName="nome">
+          </mat-form-field>
+        </div>
+        <div formGroupName="inquilino" class="linha">
+          <mat-form-field appearance="outline">
+            <mat-label>Inquilino</mat-label>
+            <input matInput formControlName="nome">
+          </mat-form-field>
+        </div>
+        <div formGroupName="inquilino" class="linha">
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Observações</mat-label>
+          <textarea matInput formControlName="observacoes" rows="3"></textarea>
+        </mat-form-field>
+
+        <div class="linha-dado">
+          <span class="label">Assinatura do recebedor:</span>
+          <input formControlName="assinaturaRecebedor" class="valor-input">
+        </div>
+      </section>
+
+      <section class="coluna-direita">
+        <div class="linha-dado">
+          <span class="label">Valor:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="valorAluguel" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Iptu:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="iptu" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Acréscimo:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="acrescimo" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Desconto:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="desconto" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Condomínio:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="condominio" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Seguro fiança:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="seguroFianca" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Seguro incêndio:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="seguroIncendio" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Parcela caução:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="parcelaCaucao" class="valor-input">
+        </div>
+
+        <div class="separador"></div>
+
+        <div class="linha-dado total">
+          <span class="label">Total:</span>
+          <span class="prefixo">R$</span>
+          <input formControlName="total" class="valor-input">
+        </div>
+
+        <div class="linha-dado">
+          <span class="label">Data de recebimento:</span>
+          <input [matDatepicker]="recebimentoPicker" formControlName="dataRecebimento" class="valor-input">
+          <mat-datepicker-toggle [for]="recebimentoPicker"></mat-datepicker-toggle>
+          <mat-datepicker #recebimentoPicker></mat-datepicker>
+        </div>
+      </section>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+

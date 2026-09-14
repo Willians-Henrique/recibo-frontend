@@ -1,0 +1,59 @@
+<div class="form-recibo-imobiliaria">
+    <section class="coluna">
+        <h3>Valores recebidos</h3>
+        @for (item of valoresRecebidos; track item.label) {
+        <div class="linha-dado">
+            <span class="label">{{ item.label }}:</span>
+            <span class="valor">{{ item.valor }}</span>
+        </div>
+        }
+
+        <div class="dados">
+            <h3>dados de repasse</h3>
+            @for (item of dadosRepasse; track item.label) {
+            <div class="linha-dado">
+                <span class="label">{{ item.label }}:</span>
+                <span class="valor">{{ item.valor }}</span>
+            </div>
+            }
+        </div>
+    </section>
+
+    <section class="coluna">
+        <h3>Valores a repassar</h3>
+        @for (item of valoresARepassar; track item.label) {
+        <div class="linha-dado">
+            <span class="label">{{ item.label }}:</span>
+            <span class="valor">{{ item.valor }}</span>
+        </div>
+        }
+        <div class="dados">
+            <h3>data do contrato</h3>
+            @for (item of dadosContrato; track item.label) {
+            <div class="linha-dado">
+                <span class="label">{{ item.label }}:</span>
+                <span class="valor">{{ item.valor }}</span>
+            </div>
+            }
+        </div>
+    </section>
+
+  <div class="identificacao">
+    @for (item of dadosIdentificacao; track item.label) {
+    <div class="linha-dado">
+        <span class="label">{{ item.label }}:</span>
+        <span class="valor">{{ item.valor }}</span>
+    </div>
+    }
+  </div>
+
+  <div class="rodape-final">
+    @for (item of dadosFinais; track item.label) {
+    <div class="linha-dado">
+        <span class="label">{{ item.label }}:</span>
+        <span class="valor">{{ item.valor }}</span>
+    </div>
+    }
+  </div>
+
+</div>

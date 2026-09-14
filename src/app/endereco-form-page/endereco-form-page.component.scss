@@ -1,0 +1,14 @@
+.pagina {
+  max-width: 700px;
+  margin: 16px auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
+mat-form-field {
+  width: 100%;
+}

@@ -1,0 +1,194 @@
+<mat-card class="pagina">
+  <mat-card-header>
+    <mat-card-title>{{ contratoId ? 'Editar contrato' : 'Novo contrato' }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form" class="form-grid">
+      <h3>Partes</h3>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Imóvel</mat-label>
+        <mat-select formControlName="imovelId">
+          @for (imovel of imoveis; track imovel.id) {
+            <mat-option [value]="imovel.id">{{ formatarImovel(imovel) }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Inquilino</mat-label>
+        <mat-select formControlName="inquilinoId">
+          @for (pessoa of pessoas; track pessoa.id) {
+            <mat-option [value]="pessoa.id">{{ pessoa.nome }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Destinatário</mat-label>
+        <mat-select formControlName="destinatarioId">
+          @for (pessoa of pessoas; track pessoa.id) {
+            <mat-option [value]="pessoa.id">{{ pessoa.nome }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <h3>Condições</h3>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de locação</mat-label>
+        <mat-select formControlName="tipoLocacao">
+          @for (tipo of tiposLocacao; track tipo) {
+            <mat-option [value]="tipo">{{ tipo }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Garantia</mat-label>
+        <mat-select formControlName="garantia">
+          @for (garantia of garantias; track garantia) {
+            <mat-option [value]="garantia">{{ garantia }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="ativo">
+          @for (status of statusContrato; track status) {
+            <mat-option [value]="status">{{ status }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Data de início</mat-label>
+        <input matInput type="date" formControlName="dataInicio">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Duração (meses)</mat-label>
+        <input matInput type="number" formControlName="duracaoMeses">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Data de término</mat-label>
+        <input matInput type="date" formControlName="dataFim">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Dia do vencimento</mat-label>
+        <input matInput type="number" min="1" max="31" formControlName="diaVencimento">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Próximo reajuste</mat-label>
+        <input matInput type="date" formControlName="proximoReajuste">
+      </mat-form-field>
+
+      <h3>Valores do inquilino</h3>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Valor aluguel</mat-label>
+        <input matInput formControlName="valorAluguel">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Taxa administração</mat-label>
+        <input matInput formControlName="taxaAdministracao">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Acréscimo</mat-label>
+        <input matInput formControlName="acrescimoInquilino">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Desconto</mat-label>
+        <input matInput formControlName="descontoInquilino">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>IPTU</mat-label>
+        <input matInput formControlName="iptu">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Condomínio</mat-label>
+        <input matInput formControlName="condominio">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Seguro fiança</mat-label>
+        <input matInput formControlName="seguroFianca">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Seguro incêndio</mat-label>
+        <input matInput formControlName="seguroIncendio">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Parcela caução</mat-label>
+        <input matInput formControlName="parcelaCaucao">
+      </mat-form-field>
+
+      <h3>Valores do proprietário</h3>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Adm. acréscimo inquilino</mat-label>
+        <input matInput formControlName="admAcrescimoInquilino">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Adm. desconto inquilino</mat-label>
+        <input matInput formControlName="admDescontoInquilino">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Acréscimo proprietário</mat-label>
+        <input matInput formControlName="acrescimoProprietario">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Desconto proprietário</mat-label>
+        <input matInput formControlName="descontoProprietario">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>IPTU proprietário</mat-label>
+        <input matInput formControlName="iptuProprietario">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Condomínio proprietário</mat-label>
+        <input matInput formControlName="condominioProprietario">
+      </mat-form-field>
+
+      <h3>Repasse</h3>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pix</mat-label>
+        <input matInput formControlName="pix">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Agência e conta</mat-label>
+        <input matInput formControlName="agenciaConta">
+      </mat-form-field>
+
+      <mat-checkbox formControlName="retirada">Retirada</mat-checkbox>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Observações</mat-label>
+        <textarea matInput formControlName="observacoes" rows="3"></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [disabled]="salvando" (click)="salvar()">Salvar</button>
+  </mat-card-actions>
+</mat-card>

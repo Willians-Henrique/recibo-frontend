@@ -1,0 +1,11 @@
+.nav-principal .ativo {
+  text-decoration: underline;
+}
+
+// esconde a navegação ao imprimir/gerar o PDF do recibo
+@media print {
+  .nav-principal {
+    display: none;
+  }
+}
+

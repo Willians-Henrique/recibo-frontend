@@ -1,0 +1,102 @@
+.form-recibo-cliente {
+  height: 100%;
+  overflow: auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
+.coluna-esquerda,
+.coluna-direita {
+  min-width: 0; // sem isso o conteúdo mais largo de uma coluna empurra o grid e quebra o 50/50
+}
+
+.coluna-esquerda {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+// reduz o espaço acima/abaixo do texto via tokens do Material, não via padding bruto
+// (padding bruto no infix quebra o "notch" da borda outline, como já vimos antes)
+.coluna-esquerda mat-form-field {
+  --mat-form-field-container-height: 40px;
+  --mat-form-field-container-vertical-padding: 6px;
+}
+
+.coluna-direita {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.linha {
+  display: flex;
+  gap: 2px;
+
+  mat-form-field {
+    flex: 1;
+  }
+}
+
+
+mat-form-field {
+  width: 100%;
+}
+
+.endereco input {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+mat-divider {
+  margin: 4px 0;
+}
+
+// linhas simples "label: R$ valor", sem os componentes de form do Material
+.linha-dado {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 3px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+  font-size: 0.85rem;
+
+  .label {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.7);
+    white-space: nowrap;
+  }
+
+  .prefixo {
+    flex: 0 0 auto;
+  }
+
+  .valor-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    text-align: right;
+  }
+}
+
+.linha-dado.total {
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.separador {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  margin: 6px 0;
+}
+
+
