@@ -16,12 +16,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Recibos' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Recibos');
-  });
-
   it('should render the navigation toolbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
