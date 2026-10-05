@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ContratoRecibo } from '../../models/contrato-recibo.model';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-header-recibo',
@@ -13,27 +15,27 @@ import { ContratoRecibo } from '../../models/contrato-recibo.model';
     MatToolbarModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule
   ],
   templateUrl: './header-recibo.component.html',
+  providers: [provideNativeDateAdapter(), { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   styleUrl: './header-recibo.component.scss'
 })
 export class HeaderReciboComponent implements OnChanges {
-  @Input() corretor = 'João Bosco L';
-  @Input() slogan = 'VENDA – ALUGA – ADMINISTRAÇÃO DE IMÓVEIS';
-  @Input() creci = '175963';
   @Input() contrato: ContratoRecibo | null = null;
 
   private readonly fb = inject(FormBuilder);
 
   form = this.fb.group({
-    dataPagamento: [''],
+    dataVencimento: [''],
     dataReajuste: ['']
   });
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['contrato'] && this.contrato) {
       this.form.patchValue({
+        // dataVencimento: this.contrato.dataVencimento,  --> se necessario, tipar em contrato
         dataReajuste: this.contrato.proximoReajuste
       });
     }

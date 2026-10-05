@@ -1,20 +1,23 @@
-<mat-toolbar color="primary" class="header-recibo">
+<mat-toolbar class="header-recibo">
   <div class="info">
     <div class="logo">
       <mat-icon>home</mat-icon>
     </div>
 
     <div class="texto">
-      <span class="corretor">Corretor {{ corretor }}</span>
-      <span class="slogan">{{ slogan }}</span>
-      <span class="creci">CRECI - {{ creci }}</span>
+      <span class="corretor">Corretor João Bosco L</span>
+      <span class="slogan">VENDA – ALUGA – ADMINISTRAÇÃO DE IMÓVEIS</span>
+      <span class="creci">CRECI - 175963</span>
     </div>
   </div>
 
   <div class="datas" [formGroup]="form">
     <mat-form-field appearance="outline">
-      <mat-label>Data de pagamento</mat-label>
-      <input matInput type="date" formControlName="dataPagamento">
+      <mat-label>Data do Vencimento</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -23,5 +26,3 @@
     </mat-form-field>
   </div>
 </mat-toolbar>
-
-
