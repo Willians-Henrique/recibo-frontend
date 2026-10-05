@@ -24,8 +24,9 @@
 }
 
 // recibo do cliente ocupa o topo, recibo da imobiliária o restante da folha
+// display vem do próprio recibo-cliente.component.scss (precisa ser flex, não block,
+// pra dividir header/form internamente — setar aqui ganharia por especificidade e quebraria isso)
 app-recibo-cliente {
-  display: block;
   flex: 0 0 45%;
   overflow: hidden;
 }
@@ -35,4 +36,3 @@ app-recibo-imobiliaria {
   flex: 0 0 55%;
   overflow: hidden;
 }
-

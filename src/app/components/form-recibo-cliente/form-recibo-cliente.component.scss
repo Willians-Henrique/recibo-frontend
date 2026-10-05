@@ -1,3 +1,13 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+mat-card-content {
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .form-recibo-cliente {
   height: 100%;
   overflow: auto;
@@ -6,6 +16,8 @@
 
 .form-grid {
   display: grid;
+  height: 100%;
+  box-sizing: border-box;
   grid-template-columns: 1fr 1fr;
   gap: 0 16px;
 }
@@ -33,6 +45,10 @@
   flex-direction: column;
 
   gap: 10px;
+}
+
+.rodape-coluna {
+  margin-top: auto;
 }
 
 .linha {

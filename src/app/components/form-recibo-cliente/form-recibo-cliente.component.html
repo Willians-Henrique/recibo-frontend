@@ -32,9 +32,8 @@
           <textarea matInput formControlName="observacoes" rows="3"></textarea>
         </mat-form-field>
 
-        <div class="linha-dado">
+        <div class="linha-dado rodape-coluna">
           <span class="label">Assinatura do recebedor:</span>
-          <input formControlName="assinaturaRecebedor" class="valor-input">
         </div>
       </section>
 
@@ -95,15 +94,10 @@
           <input formControlName="total" class="valor-input">
         </div>
 
-        <div class="linha-dado">
+        <div class="linha-dado rodape-coluna">
           <span class="label">Data de recebimento:</span>
-          <input [matDatepicker]="recebimentoPicker" formControlName="dataRecebimento" class="valor-input">
-          <mat-datepicker-toggle [for]="recebimentoPicker"></mat-datepicker-toggle>
-          <mat-datepicker #recebimentoPicker></mat-datepicker>
         </div>
       </section>
     </form>
   </mat-card-content>
 </mat-card>
-
-

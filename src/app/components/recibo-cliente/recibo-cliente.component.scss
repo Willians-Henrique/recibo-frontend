@@ -1,0 +1,20 @@
+// header ocupa a altura natural dele; o formulário preenche o restante (sem isso,
+// o form competia por 100% da altura total e estourava o overflow:hidden do pai)
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-header-recibo {
+  flex: 0 0 auto;
+}
+
+app-form-recibo-cliente {
+  // flex-basis: 0 (não "auto") para o flex-grow dividir o espaço certo — com "auto" o
+  // height:100% do próprio form-recibo-cliente.component.scss vira o flex-basis e ele
+  // passa a competir por 100% do pai inteiro, ignorando o espaço já usado pelo header.
+  flex: 1 1 0;
+  min-height: 0; // permite o filho encolher/scrollar em vez de transbordar o flex
+  overflow: hidden;
+}
